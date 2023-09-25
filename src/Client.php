@@ -14,9 +14,13 @@ class Client
 
     private String $authToken;
 
-    public function __construct(GuzzleHttpClient $httpClient, String $authToken)
+    private String $baseUri;
+
+    public function __construct(GuzzleHttpClient $httpClient, String $baseUri, String $authToken)
     {
         $this->httpClient = $httpClient;
+
+        $this->baseUri = $baseUri;
 
         $this->authToken = $authToken;
     }
@@ -39,7 +43,7 @@ class Client
     private function makeRequest(String $method, String $url, array $params = [], String $requestType = 'query')
     {
         return $this->processResponse(
-            $this->httpClient->request($method, $url, $this->getOptions($params, $requestType))
+            $this->httpClient->request($method, $this->baseUri . $url, $this->getOptions($params, $requestType))
         );
     }
 
