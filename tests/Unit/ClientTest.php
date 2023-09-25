@@ -70,6 +70,23 @@ it("should return the data as JSON", function () {
     ]);
 });
 
+it("should return the data as JSON if header has chartset", function () {
+    $response = new Response(200, ['content-type' => 'application/json; charset=utf-8'], '{"message": "This is my response"}');
+
+    $this->mockHttpClient->shouldReceive("request")
+       ->once()
+       ->with('GET', 'https://sandbox.site.com/test', [
+           'headers' => [
+               'Authorization' => 'Bearer ' .  $this->authToken
+           ]
+       ])
+       ->andReturn($response);
+
+    expect($this->client->get('/test'))->toBeObject((object) [
+        'message' => 'This is my response'
+    ]);
+});
+
 it("should make a POST request", function () {
     $this->mockHttpClient->shouldReceive("request")
         ->once()

@@ -88,6 +88,6 @@ class Client
 
         $header = $response->getHeader('content-type')[0];
 
-        return $header == 'application/json';
+        return strpos($header, 'application/json') !== false;
     }
 }
