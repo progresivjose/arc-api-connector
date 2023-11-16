@@ -40,6 +40,11 @@ class Client
         return $this->makeRequest('PUT', $url, $params, $requestType);
     }
 
+    public function delete(String $url, array $params = [], String $requestType = 'form_params')
+    {
+        return $this->makeRequest('DELETE', $url, $params, $requestType);
+    }
+
     private function makeRequest(String $method, String $url, array $params = [], String $requestType = 'query')
     {
         return $this->processResponse(

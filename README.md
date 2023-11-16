@@ -33,4 +33,8 @@ $this->client->post('http://example.test', ['name' => 'John', 'lastname' => 'Doe
 $this->client->post('http://example.test', ['name' => 'John', 'lastname' => 'Doe'], 'multipart');
 ```
 
-
+### Available methods
+- get
+- post
+- put
+- delete

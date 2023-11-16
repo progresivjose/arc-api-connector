@@ -4,8 +4,8 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.0.0",
-        "guzzlehttp/guzzle": "^6.3"
+        "php": ">=8.2.11",
+        "guzzlehttp/guzzle": "^7.2"
     },
     "autoload": {
         "psr-4": {
@@ -13,8 +13,8 @@
         }
     },
     "require-dev": {
-        "pestphp/pest": "1.x",
-        "mockery/mockery": "~1.0"
+        "pestphp/pest": "^2.24",
+        "mockery/mockery": "^1.4.4"
     },
     "config": {
         "allow-plugins": {
